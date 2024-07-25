@@ -66,8 +66,6 @@ else:
         FRAME_WINDOW.image(frame)
 
     cap.release()
-    st.stop()  # Stop the Streamlit script when done
 
 # Clean up
-cap.release()
 cv2.destroyAllWindows()
