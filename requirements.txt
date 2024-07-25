@@ -2,3 +2,5 @@ streamlit
 opencv-python
 mediapipe
 numpy
+# System dependencies
+-r requirements-system.txt
