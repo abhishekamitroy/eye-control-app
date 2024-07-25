@@ -46,18 +46,7 @@ class VideoTransformer(VideoTransformerBase):
         return av.VideoFrame.from_ndarray(img, format="bgr24")
 
 # Start the webcam stream
-webrtc_ctx = webrtc_streamer(key="example", video_transformer_factory=VideoTransformer)
-
-# Display the video frame in Streamlit
-if webrtc_ctx.video_receiver:
-    while True:
-        try:
-            frame = webrtc_ctx.video_receiver.get_frame(timeout=1)
-            if frame is not None:
-                st.image(frame.to_image(), caption="Webcam Stream", use_column_width=True)
-        except Exception as e:
-            st.write(f"Error: {e}")
-            break
+webrtc_streamer(key="example", video_transformer_factory=VideoTransformer)
 
 # Display an info message
 st.info("Webcam stream started. Check the console for frame processing status.")
