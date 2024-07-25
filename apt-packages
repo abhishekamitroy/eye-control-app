@@ -1,0 +1,5 @@
+echo "libgl1-mesa-glx" > apt-packages
+echo "libglib2.0-0" >> apt-packages
+echo "ffmpeg" >> apt-packages
+echo "libsm6" >> apt-packages
+echo "libxext6" >> apt-packages
