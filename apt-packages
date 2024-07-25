@@ -1,0 +1,2 @@
+echo "libgl1-mesa-glx" > apt-packages
+echo "libglib2.0-0" >> apt-packages
