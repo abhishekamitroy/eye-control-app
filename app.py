@@ -14,33 +14,17 @@ drawing_spec = mp.solutions.drawing_utils.DrawingSpec(thickness=1, circle_radius
 run = st.checkbox('Run')
 FRAME_WINDOW = st.image([])
 
-# Function to check if the webcam is available
-def is_webcam_available():
-    cap = cv2.VideoCapture(0)
-    if cap.isOpened():
-        cap.release()
-        return True
-    return False
+# Initialize video capture (webcam)
+cap = cv2.VideoCapture(0)
 
-# Option to use video file if webcam is not available
-use_video_file = False
-video_file_path = 'path_to_video_file.mp4'  # Update this with your video file path
-
-if not is_webcam_available():
-    st.warning("Webcam is not available. Switching to video file.")
-    use_video_file = True
-
-# Initialize video capture (webcam or video file)
-cap = cv2.VideoCapture(0 if not use_video_file else video_file_path)
-
-# Check if the video capture is opened successfully
+# Check if the webcam is opened successfully
 if not cap.isOpened():
-    st.error("Failed to open video source. Please check your webcam or video file path.")
+    st.error("Failed to open webcam. Please ensure your webcam is connected and accessible.")
 else:
     while run:
         ret, frame = cap.read()
         if not ret:
-            st.warning("Failed to read frame from video source")
+            st.warning("Failed to read frame from webcam.")
             break
 
         # Flip the frame horizontally for a later selfie-view display
